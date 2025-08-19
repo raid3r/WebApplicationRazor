@@ -61,6 +61,7 @@ public class NewsModel : PageModel
         return NewsItems;
     }
 
+    // Перші методи які спрацьоють при запиті до сторінки
     public void OnGet()
     {
         Search = Request.Query["Search"]; // GET ?Search=somevalue
