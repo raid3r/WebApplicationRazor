@@ -1,0 +1,36 @@
+﻿@page
+@model WebApplicationRazor.Pages.NewsModel
+@{
+    ViewData["Title"] = "News";
+    
+}
+
+<h1>News</h1>
+
+
+<div class="row">
+    <form method="post" class="col-md-12">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="newsTitle">Search</label>
+                <input type="text" class="form-control" id="search" asp-for="Search" />
+            </div>
+            <button class="btn btn-primary" id="searchButton">Search</button>
+        </div>
+    </form>
+</div>
+
+<div class="row">
+    @foreach (var item in Model.GetNewsItems())
+    {
+        <div class="col-md-4 mb-4 mt-4">
+            <div class="card">
+                <div class="card-header">@item.Title</div>
+                <div class="card-body">@item.Content</div>
+                <div class="card-footer">
+                    @item.PublishedDate.ToString("dd.MM.yyyy HH:mm")
+                </div>
+            </div>
+        </div>
+    }
+</div>
